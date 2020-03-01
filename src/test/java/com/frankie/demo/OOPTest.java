@@ -29,26 +29,6 @@ public class OOPTest {
     }
 
     @Test
-    void primitiveTransferTest(){
-        int a = 5, b = 8;
-        Utils.swap(a, b);
-        System.out.println(String.format("after swap(): a = %d, b = %d", a, b));
-    }
-
-    @Test
-    void parameterDynamicTest(){
-//        Utils.paramDynamic(10, "frankie", "asan", "paangzi");
-        String[] names = {"frankie", "asan", "paangzi"};
-        Utils.paramDynamic(20, names);
-    }
-
-    @Test
-    void recursionTest(){
-        int ret = Utils.func(3);
-        Assert.assertEquals(ret, 22);
-    }
-
-    @Test
     void methodOverloadAndChangeableParamTest(){
         Utils.paramDynamic( "frankie","asan");
         Utils.paramDynamic("frankie");
@@ -113,4 +93,34 @@ public class OOPTest {
         Dog puppy = new Dog("puppy");
         System.out.println("The name of dog is " + puppy.getName());
     }
+
+    @Test
+    void primitiveTransferTest(){
+        int a = 5, b = 8;
+        Utils.swap(a, b);
+        System.out.println(String.format("after swap(): a = %d, b = %d", a, b));
+    }
+
+    @Test
+    void referenceTransferTest(){
+        DataWrap dw = new DataWrap(5, 8);
+        Utils.swapDataWrap(dw);
+        System.out.println(String.format("after swap(): a = %d, b = %d", dw.getA(), dw.getB()));
+    }
+
+    @Test
+    void recursionTest(){
+//        int ret = Utils.func(10);
+//        Assert.assertEquals(ret, 10497);
+        int ret = Utils.fn(10);
+        System.out.println(ret);
+    }
+
+    @Test
+    void parameterDynamicTest(){
+        Utils.paramDynamic(10, "frankie", "asan", "paangzi");
+//        String[] names = {"frankie", "asan", "paangzi"};
+//        Utils.paramDynamic(20, names);
+    }
+
 }

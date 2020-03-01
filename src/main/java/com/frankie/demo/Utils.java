@@ -1,5 +1,6 @@
 package com.frankie.demo;
 
+import com.frankie.demo.oop.DataWrap;
 import com.frankie.demo.oop.SeasonEnum;
 
 import java.text.Format;
@@ -36,7 +37,14 @@ public class Utils {
         int tmp = a;
         a = b;
         b = tmp;
-        System.out.println(String.format("in swap(): a = %d, b = %d", a, b));
+        System.out.println(String.format("in    swap(): a = %d, b = %d", a, b));
+    }
+
+    public static void swapDataWrap(DataWrap dw){
+        int tmp = dw.getA();
+        dw.setA(dw.getB());
+        dw.setB(tmp);
+        System.out.println(String.format("in    swap(): a = %d, b = %d", dw.getA(), dw.getB()));
     }
 
     public static void paramDynamic(int a, String... names){
@@ -58,5 +66,11 @@ public class Utils {
         else if (n == 0) return 1;
         else if (n == 1) return 4;
         else return 2 * func(n -1 ) + func(n - 2);
+    }
+
+    public static int fn(int n){
+        if (n == 20) return 1;
+        else if (n == 21) return 4;
+        else return fn(n + 2) - 2 * fn(n + 1);
     }
 }
