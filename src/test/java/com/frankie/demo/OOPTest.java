@@ -99,4 +99,18 @@ public class OOPTest {
         System.out.println("----------------");
         new Leaf();
     }
+
+
+    /**
+     * OOP
+     */
+    @Test
+    void thisTest(){
+//        Dog dog = new Dog();
+//        dog.run();
+//        dog.getName();
+
+        Dog puppy = new Dog("puppy");
+        System.out.println("The name of dog is " + puppy.getName());
+    }
 }
