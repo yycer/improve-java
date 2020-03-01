@@ -123,4 +123,22 @@ public class OOPTest {
 //        Utils.paramDynamic(20, names);
     }
 
+    @Test
+    void superTest(){
+        Child child = new Child();
+        child.test();
+    }
+
+    @Test
+    void inheritTreeCreationSeqTest(){
+        new Wolf();
+    }
+
+    @Test
+    void variableOverrideTest(){
+        var name = "frankie";
+        System.out.println("name is " + name);
+        VariableOverride vo = new VariableOverride();
+        System.out.println("name in VariableOverride is " + vo.getName());
+    }
 }
