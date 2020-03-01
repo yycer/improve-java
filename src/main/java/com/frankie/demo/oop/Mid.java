@@ -7,15 +7,15 @@ package com.frankie.demo.oop;
 public class Mid extends Root{
 
     static {
-        System.out.println("Mid static init block.");
+        System.out.println("Mid  static init block.");
     }
 
     {
-        System.out.println("Mid init block.");
+        System.out.println("Mid  init block.");
     }
 
     public Mid(){
-        System.out.println("Mid constructor.");
+        System.out.println("Mid  constructor.");
     }
 
     public Mid(String name){

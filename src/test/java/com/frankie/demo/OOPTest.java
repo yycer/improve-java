@@ -1,12 +1,8 @@
 package com.frankie.demo;
 
 import com.frankie.demo.oop.*;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import org.objenesis.ObjenesisHelper;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 /**
  * @author: Yao Frankie
@@ -35,18 +31,6 @@ public class OOPTest {
     }
 
     @Test
-    void polymorphismTest(){
-        // Compile type: ParentClass
-        // Runtime type: ChildClass
-        ParentClass polymorphism = new ChildClass();
-        // Instance variable does not have polymorphism.
-        System.out.println("polymorphism.book = " + polymorphism.book);
-        polymorphism.parent();
-        // Methods have polymorphism.
-        polymorphism.test();
-    }
-
-    @Test
     void instanceTest(){
         Object obj = "Hello";
         System.out.println("obj instanceof Object: " + (obj instanceof Object));
@@ -71,13 +55,6 @@ public class OOPTest {
     void initBlockTest(){
         InitBlock initBlock = new InitBlock();
         System.out.println("b = " + initBlock.getB());
-    }
-
-    @Test
-    void staticInitBlockTest(){
-        new Leaf();
-        System.out.println("----------------");
-        new Leaf();
     }
 
 
@@ -140,5 +117,62 @@ public class OOPTest {
         System.out.println("name is " + name);
         VariableOverride vo = new VariableOverride();
         System.out.println("name in VariableOverride is " + vo.getName());
+    }
+
+    @Test
+    void polymorphismTest(){
+        BaseClass base = new BaseClass();
+        System.out.println("base book is " + base.book);
+        base.base();
+        base.test();
+//
+//        System.out.println("--------------------");
+//        SubClass sub = new SubClass();
+//        System.out.println("sub book is " + sub.book);
+//        sub.sub();
+//        sub.test();
+
+        System.out.println("--------------------");
+        BaseClass polymorphism = new SubClass();
+        System.out.println("polymorphism book is " + polymorphism.book);
+        // Only allow runtime methods can be called.
+        polymorphism.base();
+        polymorphism.test();
+        // Cannot resolve method 'sub' in BaseClass.
+        // polymorphism.sub();
+    }
+
+    @Test
+    void typeConversionTest(){
+        String name = "";
+        Object obj = "yyc";
+        if (obj instanceof String) {
+            name = (String) obj;
+        }
+
+        System.out.println("name is " + name);
+    }
+
+    @Test
+    void instanceInitTest(){
+        InstanceInit ii = new InstanceInit();
+        System.out.println("Age is " + ii.getAge());
+    }
+
+    @Test
+    void instanceInitSeqTest(){
+        new SubClass();
+    }
+
+    @Test
+    void staticInitBlockTest(){
+        new Leaf();
+        System.out.println("----------------");
+        new Leaf();
+    }
+
+    @Test
+    void staticInitTest(){
+        System.out.println("a = " + StaticInit.a);
     }
 }
