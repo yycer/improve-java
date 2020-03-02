@@ -1,8 +1,11 @@
 package com.frankie.demo;
 
 import com.frankie.demo.oop.*;
+import com.frankie.demo.oopplus.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.UUID;
 
 /**
  * @author: Yao Frankie
@@ -174,5 +177,20 @@ public class OOPTest {
     @Test
     void staticInitTest(){
         System.out.println("a = " + StaticInit.a);
+    }
+
+//    ------------------------------
+    @Test
+    void equalTest(){
+//        Order order = new Order(UUID.randomUUID().toString());
+        // com.frankie.demo.oopplus.Order@124ac145
+//        System.out.println(order);
+//        System.out.println(order.toString());
+
+        String uuid = UUID.randomUUID().toString();
+        Order order1 = new Order(uuid);
+        Order order2 = new Order(uuid);
+        System.out.println("order1 == order2? " + (order1 == order2));
+        System.out.println("order1.equals(order2)? " + (order1.equals(order2)));
     }
 }
