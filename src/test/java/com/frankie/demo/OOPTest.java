@@ -1,7 +1,9 @@
 package com.frankie.demo;
 
 import com.frankie.demo.oop.*;
+import com.frankie.demo.oopplus.FinalErrorTest;
 import com.frankie.demo.oopplus.Order;
+import com.frankie.demo.oopplus.Singleton;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -192,5 +194,19 @@ public class OOPTest {
         Order order2 = new Order(uuid);
         System.out.println("order1 == order2? " + (order1 == order2));
         System.out.println("order1.equals(order2)? " + (order1.equals(order2)));
+    }
+
+    @Test
+    void singletonTest(){
+        Singleton instance1 = Singleton.getInstance();
+        Singleton instance2 = Singleton.getInstance();
+        System.out.println("instance1 == instance2? " + (instance1 == instance2));
+        // instance1 == instance2? true
+    }
+
+    @Test
+    void finalVariableTest(){
+//        System.out.println(FinalVariable.getStaticVar());
+        new FinalErrorTest();
     }
 }
