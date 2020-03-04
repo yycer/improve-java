@@ -221,4 +221,28 @@ public class OOPTest {
         Produce producer = new Printer();
         producer.getProduceTime();
     }
+
+    @Test
+    void processArrayTest(){
+        int[] arr = {1, 2, 3};
+        ProcessArray pa = new ProcessArray();
+
+        // Solution1: Anonymous class.
+//        pa.process(arr, new Command() {
+//            @Override
+//            public void process(int num) {
+//                System.out.println("num = " + num);
+//            }
+//        });
+
+        // Solution2: Lambda expression.
+
+        pa.process(arr, num -> System.out.println("num = " + num));
+    }
+
+    @Test
+    void gcTest(){
+        System.gc();
+        Runtime.getRuntime().gc();
+    }
 }

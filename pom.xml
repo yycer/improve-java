@@ -46,6 +46,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.frankie</groupId>
+            <artifactId>frankie</artifactId>
+            <version>1.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
