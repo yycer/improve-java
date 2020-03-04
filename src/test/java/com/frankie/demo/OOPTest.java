@@ -1,9 +1,7 @@
 package com.frankie.demo;
 
 import com.frankie.demo.oop.*;
-import com.frankie.demo.oopplus.FinalErrorTest;
-import com.frankie.demo.oopplus.Order;
-import com.frankie.demo.oopplus.Singleton;
+import com.frankie.demo.oopplus.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -208,5 +206,19 @@ public class OOPTest {
     void finalVariableTest(){
 //        System.out.println(FinalVariable.getStaticVar());
         new FinalErrorTest();
+    }
+
+    @Test
+    void interfaceTest(){
+        Output output = new Printer();
+        output.getDate("Java Book");
+        output.getDate("Python Book");
+        output.out();
+        output.print("Java", "Python", "Go");
+        output.defaultTest();
+
+        System.out.println("---------------");
+        Produce producer = new Printer();
+        producer.getProduceTime();
     }
 }
