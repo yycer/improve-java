@@ -1,4 +1,4 @@
-package com.frankie.demo;
+package com.frankie.demo.utils;
 
 import com.frankie.demo.oop.DataWrap;
 import com.frankie.demo.oop.SeasonEnum;
