@@ -11,10 +11,20 @@ import lombok.Setter;
 @Getter
 public class Order {
 
+    private static int orderType = 10;
+    public int a = 0;
     private String orderId;
+
+    static {
+//        orderType = a;
+    }
 
     public Order(String orderId){
         this.orderId = orderId;
+    }
+
+    public void justTest(){
+        System.out.println(orderType);
     }
 
     @Override
