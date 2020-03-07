@@ -122,7 +122,7 @@ public class CollectionTest {
         pq.offer(1);
 //        pq.offer(null);
 
-        /** Select -> element() and **/
+        /** Select -> element() and peek() **/
         System.out.println("Just peek: " + pq.peek());
 
         /** Delete -> remove() and poll() **/
@@ -130,6 +130,39 @@ public class CollectionTest {
         while (!pq.isEmpty()){
             System.out.println("Do   poll: " + pq.poll());
         }
+    }
+
+    @Test
+    void arrayDequeTest(){
+        /** As stack **/
+        System.out.println("/** As stack **/");
+        ArrayDeque<Integer> adStack = new ArrayDeque<>();
+        adStack.push(5); // addFirst()
+        adStack.push(2);
+        adStack.push(3);
+        System.out.println(adStack);
+
+        while (!adStack.isEmpty()){
+            System.out.println("Polled element in adStack is " + adStack.poll()); // pollFirst()
+        }
+
+        System.out.println("/** As queue **/");
+        /** As queue **/
+
+        ArrayDeque<Integer> adQueue = new ArrayDeque<>();
+        adQueue.offer(5); // offerLast()
+        adQueue.offer(2);
+        adQueue.offer(3);
+        System.out.println(adQueue);
+        while (!adQueue.isEmpty()){
+            System.out.println("Polled element in adQueue is " + adQueue.poll()); // pollFirst();
+        }
+    }
+
+    @Test
+    void linkedListTest(){
+        LinkedList<Integer> ll = new LinkedList<>();
+
     }
 }
 
