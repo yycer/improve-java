@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Properties;
 
@@ -70,4 +71,38 @@ public class ToolsTest {
 
         System.out.println("ret = " + ret);
     }
+
+    @Test
+    void copyTest(){
+        int[] nums = {10, 20, 30, 40, 50};
+        System.out.println("nums.length = " + nums.length);
+        int[] newNums = Arrays.copyOf(nums, 10);
+        System.out.println("newNums.length = " + newNums.length);
+
+        int[] rangedNums = Arrays.copyOfRange(nums, 1, 3);
+        System.out.println(Arrays.toString(rangedNums));
+
+        int[] rangedNums2 = Arrays.copyOfRange(nums, 3, 8);
+        System.out.println(Arrays.toString(rangedNums));
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
