@@ -1,5 +1,6 @@
 package com.frankie.demo;
 
+import com.frankie.demo.generic.WildCard;
 import com.frankie.demo.playcollection.A;
 import com.frankie.demo.playcollection.B;
 import com.frankie.demo.playcollection.C;
@@ -104,7 +105,7 @@ public class CollectionTest {
         treeSet.add(3);
         treeSet.add(2);
         treeSet.add(2);
-//        treeSet.add(null);
+        treeSet.add(null);
         System.out.println(treeSet); // [1, 2, 3, 5]
         System.out.println("treeSet.headSet(3)    -> " + treeSet.headSet(3));
         System.out.println("treeSet.tailSet(3)    -> " + treeSet.tailSet(3));
@@ -140,6 +141,8 @@ public class CollectionTest {
         adStack.push(5); // addFirst()
         adStack.push(2);
         adStack.push(3);
+        adStack.push(3);
+//        adStack.push(null);
         System.out.println(adStack);
 
         while (!adStack.isEmpty()){
@@ -162,7 +165,50 @@ public class CollectionTest {
     @Test
     void linkedListTest(){
         LinkedList<Integer> ll = new LinkedList<>();
+        ll.add(5);
+        ll.add(2);
+        ll.add(3);
+        ll.add(3);
+        ll.add(null);
+        System.out.println(ll);
+    }
 
+    @Test
+    void hashMapTest(){
+        HashMap<String, String> map = new HashMap<>();
+        map.put("name", "yyc");
+        map.put("age", "25");
+
+//        Set<String> keySet = map.keySet();
+//        Collection<String> values = map.values();
+//        Set<Map.Entry<String, String>> entries = map.entrySet();
+
+        for (Map.Entry<String, String> entry: map.entrySet()){
+            System.out.println(String.format("key = %s, val = %s", entry.getKey(), entry.getValue()));
+        }
+    }
+
+    @Test
+    void arrayListGenericTest(){
+        ArrayList<String>  strings  = new ArrayList<>();
+        ArrayList<Integer> integers = new ArrayList<>();
+
+        System.out.println("strings.getClass()  is " + strings.getClass());
+        System.out.println("integers.getClass() is " + integers.getClass());
+    }
+
+    @Test
+    void wildCardTest(){
+//        ArrayList<Object> objects = new ArrayList<>();
+//        ArrayList<String> strings = new ArrayList<>();
+//
+//        WildCard.processListObject(objects);
+//        WildCard.processListObject(strings);
+
+        Number[]  nums = {1, 2, 3};
+        Integer[] ints = {1, 2, 3};
+        WildCard.processArray(nums);
+        WildCard.processArray(ints);
     }
 }
 
