@@ -35,10 +35,10 @@ public class TimeTest {
     void dateVsLocalDateTimeTest(){
         Date date = new Date();
         System.out.println(date);
-        date.setMonth(0);
-        date.setHours(0);
-        date.setMinutes(0);
-        date.setSeconds(0);
+//        date.setMonth(0);
+//        date.setHours(0);
+//        date.setMinutes(0);
+//        date.setSeconds(0);
         System.out.println(date);
 
         LocalDateTime now = LocalDateTime.now();
