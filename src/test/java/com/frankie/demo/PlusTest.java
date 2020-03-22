@@ -1,6 +1,7 @@
 package com.frankie.demo;
 
 import com.frankie.demo.plus.Order;
+import com.frankie.demo.plus.OrderComparator;
 import com.frankie.demo.plus.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,38 +19,30 @@ public class PlusTest {
 
     @Test
     void comparableTest(){
-        Product olay  = new Product("Olay" , 50);
-        Product tempo = new Product("Tempo", 10);
-        Product cup   = new Product("Cup"  , 15);
-
-        if (olay.compareTo(tempo) > 0){
-            System.out.println("The price of Olay is more expensive than Tempo.");
-        } else if (olay.compareTo(tempo) < 0){
-            System.out.println("The price of Olay is cheaper than Tempo.");
-        } else {
-            System.out.println("The price of Olay is equals to Tempo.");
-        }
+        Product a = new Product("A", 50);
+        Product b = new Product("B", 10);
+        Product c = new Product("C", 15);
 
         ArrayList<Product> products = new ArrayList<>();
-        products.add(olay);
-        products.add(tempo);
-        products.add(cup);
+        products.add(a);
+        products.add(b);
+        products.add(c);
         Collections.sort(products);
         System.out.println(products);
     }
 
     @Test
     void comparatorTest1(){
-        Order jack = new Order("jack", 200.00d);
-        Order asan = new Order("asan", 200.00d);
-        Order yyc  = new Order("yyc" , 188.00d);
-        Order qin  = new Order("qin" , 300.00d);
+        Order a = new Order("a", 200.00d);
+        Order b = new Order("b", 200.00d);
+        Order c = new Order("c", 188.00d);
+        Order d = new Order("d", 300.00d);
 
         ArrayList<Order> orders = new ArrayList<>();
-        orders.add(jack);
-        orders.add(asan);
-        orders.add(yyc);
-        orders.add(qin);
+        orders.add(a);
+        orders.add(b);
+        orders.add(c);
+        orders.add(d);
 
 //        Collections.sort(orders, new OrderComparator());
 //        System.out.println(orders);
