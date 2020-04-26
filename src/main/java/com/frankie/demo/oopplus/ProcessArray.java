@@ -6,8 +6,8 @@ package com.frankie.demo.oopplus;
  */
 public class ProcessArray {
 
-    public void process(int[] arr, Command cmd){
-        for (var num: arr)
-            cmd.process(num);
-    }
+//    public void process(int[] arr, Command cmd){
+//        for (var num: arr)
+//            cmd.process(num);
+//    }
 }

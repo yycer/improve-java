@@ -27,15 +27,15 @@ public class Order {
         System.out.println(orderType);
     }
 
-    @Override
-    public boolean equals(Object o){
-        if (this == o)
-            return true;
-
-        if (o != null && o.getClass() == Order.class){
-            var order = (Order) o;
-            return order.getOrderId().equals(this.getOrderId());
-        }
-        return false;
-    }
+//    @Override
+//    public boolean equals(Object o){
+//        if (this == o)
+//            return true;
+//
+//        if (o != null && o.getClass() == Order.class){
+//            var order = (Order) o;
+//            return order.getOrderId().equals(this.getOrderId());
+//        }
+//        return false;
+//    }
 }

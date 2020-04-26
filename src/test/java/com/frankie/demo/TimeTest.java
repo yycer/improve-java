@@ -3,7 +3,6 @@ package com.frankie.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,7 +27,7 @@ public class TimeTest {
     void dateTest(){
         Date date = new Date();
         System.out.println(date);
-        System.out.println(date.toInstant());
+//        System.out.println(date.toInstant());
     }
 
     @Test
@@ -41,10 +40,10 @@ public class TimeTest {
 //        date.setSeconds(0);
         System.out.println(date);
 
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(now);
-
-        now = now.withMonth(1);
-        System.out.println(now);
+//        LocalDateTime now = LocalDateTime.now();
+//        System.out.println(now);
+//
+//        now = now.withMonth(1);
+//        System.out.println(now);
     }
 }

@@ -69,10 +69,10 @@ public class PlusTest {
 //        System.out.println(orders);
 
 
-        orders.sort(Comparator.comparing(Order::getTotal)
-            .reversed()
-            .thenComparing(Order::getUserName));
-        System.out.println(orders);
+//        orders.sort(Comparator.comparing(Order::getTotal)
+//            .reversed()
+//            .thenComparing(Order::getUserName));
+//        System.out.println(orders);
     }
 }
 

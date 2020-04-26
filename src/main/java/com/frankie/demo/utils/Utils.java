@@ -47,15 +47,15 @@ public class Utils {
         System.out.println(String.format("in    swap(): a = %d, b = %d", dw.getA(), dw.getB()));
     }
 
-    public static void paramDynamic(int a, String... names){
-        for (var name: names)
-            System.out.println(name);
-    }
+//    public static void paramDynamic(int a, String... names){
+//        for (var name: names)
+//            System.out.println(name);
+//    }
 
-    public static void paramDynamic(String... names){
-        for (var name: names)
-            System.out.println("name in changeable parameters: " + name);
-    }
+//    public static void paramDynamic(String... names){
+//        for (var name: names)
+//            System.out.println("name in changeable parameters: " + name);
+//    }
 
     public static void paramDynamic(String name){
         System.out.println("name: " + name);

@@ -62,12 +62,12 @@ public class ToolsTest {
         double ret2 = BigDecimalUtils.add(d1, d2);
         System.out.println("ret2 = " + ret2); // ret2 = 0.27
 
-        double ret = BigDecimalUtils.operate(d1, d2, (d11, d22) ->
-                        BigDecimal.valueOf(d11)
-                        .add(BigDecimal.valueOf(d22))
-                        .setScale(2, RoundingMode.HALF_UP).doubleValue());
+//        double ret = BigDecimalUtils.operate(d1, d2, (d11, d22) ->
+//                        BigDecimal.valueOf(d11)
+//                        .add(BigDecimal.valueOf(d22))
+//                        .setScale(2, RoundingMode.HALF_UP).doubleValue());
 
-        System.out.println("ret = " + ret);
+//        System.out.println("ret = " + ret);
     }
 
     @Test

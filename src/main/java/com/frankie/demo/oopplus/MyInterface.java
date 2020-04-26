@@ -6,10 +6,10 @@ package com.frankie.demo.oopplus;
  */
 public interface MyInterface {
 
-    /**
-     * Just print.
-     */
-    static void print(){
-        System.out.println("Just print.");
-    }
+//    /**
+//     * Just print.
+//     */
+//    static void print(){
+//        System.out.println("Just print.");
+//    }
 }

@@ -21,12 +21,12 @@ public class InitBlock {
         System.out.println("InitBlock constructor.");
     }
 
-    {
-        var a = 10;
-        if (a > 5){
-            System.out.println("First init block");
-        }
-    }
+//    {
+//        var a = 10;
+//        if (a > 5){
+//            System.out.println("First init block");
+//        }
+//    }
 
     {
         System.out.println("Second init block");
