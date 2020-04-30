@@ -20,4 +20,15 @@ public class TimeAnalysis {
             }
         }
     }
+
+    public void method(int n){
+        int i = 0;   // line 2
+        int j = 0;   // line 3
+        for (; i < n; i++){            // line 3
+            System.out.println(i);     // line 4
+            for (; j < n; i++){        // line 5
+                System.out.println(j); // line 6
+            }
+        }
+    }
 }
