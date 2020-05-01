@@ -9,18 +9,39 @@ import java.util.HashMap;
 public class MapTest {
 
     public static void testMap(){
-        HashMap<String, String> map = new HashMap<>(16);
+        HashMap<String, String> map = new HashMap<>(2);
         map.put("K1", "V1");
         map.put("K2", "V2");
         map.put("K2", "V3");
-        map.put(null, null);
+        map.put(null, "V4");
+        map.put(null, "V5");
+        map.remove("K2");
         System.out.println(map);
-
     }
 
     public static void main(String[] args) {
-        testMap();
+//        testMap();
+//        justTest();
+        resizeTest();
     }
+
+    private static void resizeTest() {
+        HashMap<String, String> map = new HashMap<>(2);
+        map.put("K1", "V1");
+        map.put("K2", "V2");
+        map.put("K3", "V3");
+//        String k2 = map.get("K2");
+        System.out.println(map);
+    }
+
+    private static void justTest() {
+        HashMap<String, String> map = new HashMap<>(2);
+        map.put("K1", "V1");
+        map.put(null, "1");
+        System.out.println(map);
+    }
+
+
 
     public static int hash(Object k){
         int h = 0;

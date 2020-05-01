@@ -1,9 +1,5 @@
 package com.frankie.demo.datetime;
 
-import java.time.LocalDate;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 /**
@@ -33,15 +29,15 @@ public class yearMonthTest {
         list.add(ym6);
 
         for (String s: list){
-            compare(s);
+//            compare(s);
         }
     }
 
-    public static void compare(String ym){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
-        YearMonth curYM = YearMonth.from(LocalDate.now());
-        YearMonth inputYM = YearMonth.parse(ym, formatter);
-        long monthsBetween = ChronoUnit.MONTHS.between(curYM, inputYM);
-        System.out.println(monthsBetween);
-    }
+//    public static void compare(String ym){
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMM");
+//        YearMonth curYM = YearMonth.from(LocalDate.now());
+//        YearMonth inputYM = YearMonth.parse(ym, formatter);
+//        long monthsBetween = ChronoUnit.MONTHS.between(curYM, inputYM);
+//        System.out.println(monthsBetween);
+//    }
 }
