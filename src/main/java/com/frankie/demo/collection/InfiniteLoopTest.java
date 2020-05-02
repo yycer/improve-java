@@ -36,4 +36,5 @@ public class InfiniteLoopTest {
             System.out.println("key = " + iterator.next() + ", value = " + map.get(iterator.next()));
         }
     }
+
 }
