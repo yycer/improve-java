@@ -14,9 +14,24 @@ public class FileTest {
     public static void main(String[] args) throws IOException {
 //        printAbsolutePath();
 //        listAll();
-        createAndWriteFile();
+//        createAndWriteFile();
 //        readFile();
 //        getFileInfo();
+        File dir = new File("src/main/resources/root");
+        listAllFilesRecursively(dir);
+    }
+
+    private static void listAllFilesRecursively(File dir) {
+        if (dir == null || !dir.exists()){
+            return;
+        }
+        if (dir.isFile()){
+            System.out.println(dir.getName());
+            return;
+        }
+        for (File file: dir.listFiles()){
+            listAllFilesRecursively(file);
+        }
     }
 
     public static void printAbsolutePath(){
