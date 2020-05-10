@@ -1,6 +1,9 @@
 package com.frankie.demo.io;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,8 +21,44 @@ public class FileTest {
 //        readFile();
 //        getFileInfo();
         File dir = new File("src/main/resources/root");
-        listAllFilesRecursively(dir);
+        File dir2 = new File("src/main/resources/root/level1_1");
+//        listAllFilesRecursively(dir);
+        filerFile(dir);
     }
+
+    private static void filerFile(File dir) {
+
+        if (dir == null || !dir.exists()){
+            return;
+        }
+
+        if (dir.isFile()){
+            boolean endWithJava = dir.getName().endsWith(".java");
+            if (endWithJava){
+                System.out.println(dir.getName());
+            }
+            return;
+        }
+        Arrays.stream(dir.listFiles()).forEach(FileTest::filerFile);
+    }
+
+//    private static void filerFile(File dir) {
+//        String[] nameList = dir.list((foundDir, name) -> name.endsWith(".java"));
+//        Arrays.stream(nameList).forEach(System.out::println);
+//    }
+
+//    private static void listAllFilesRecursively(File dir) {
+//        if (dir == null || !dir.exists()){
+//            return;
+//        }
+//        if (dir.isFile()){
+//            System.out.println(dir.getName());
+//            return;
+//        }
+//        for (File file: dir.listFiles()){
+//            listAllFilesRecursively(file);
+//        }
+//    }
 
     private static void listAllFilesRecursively(File dir) {
         if (dir == null || !dir.exists()){
@@ -29,9 +68,7 @@ public class FileTest {
             System.out.println(dir.getName());
             return;
         }
-        for (File file: dir.listFiles()){
-            listAllFilesRecursively(file);
-        }
+        Arrays.stream(dir.listFiles()).forEach(FileTest::listAllFilesRecursively);
     }
 
     public static void printAbsolutePath(){
