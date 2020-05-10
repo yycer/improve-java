@@ -6,7 +6,7 @@ import java.io.*;
  * @author: Yao Frankie
  * @date: 2020/5/10 12:54
  */
-public class flushTest {
+public class FlushTest {
 
     public final static String path = "src/main/resources/playio/flush.txt";
     public final static String manualPath = "src/main/resources/playio/manualFlush.txt";
