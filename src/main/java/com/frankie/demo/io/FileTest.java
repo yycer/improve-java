@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -15,18 +16,19 @@ public class FileTest {
     public static String absolutePath = "C:\\Users\\15900\\Desktop\\E-Books";
 
     public static void main(String[] args) throws IOException {
-//        printAbsolutePath();
-//        listAll();
-//        createAndWriteFile();
-//        readFile();
-//        getFileInfo();
+        printRelatedPath();
         File dir = new File("src/main/resources/root");
-        File dir2 = new File("src/main/resources/root/level1_1");
-//        listAllFilesRecursively(dir);
-        filerFile(dir);
+        listAllFilesRecursively(dir);
+        filerFileRecursively(dir);
+        fileListFilesTest();
     }
 
-    private static void filerFile(File dir) {
+    private static void fileListFilesTest() {
+        File file = new File("src/main/resources/root/level1_1/level2_a.txt");
+        File[] files = file.listFiles(); // null
+    }
+
+    private static void filerFileRecursively(File dir) {
 
         if (dir == null || !dir.exists()){
             return;
@@ -39,7 +41,8 @@ public class FileTest {
             }
             return;
         }
-        Arrays.stream(dir.listFiles()).forEach(FileTest::filerFile);
+        Arrays.stream(Objects.requireNonNull(dir.listFiles()))
+                .forEach(FileTest::filerFileRecursively);
     }
 
 //    private static void filerFile(File dir) {
@@ -68,12 +71,13 @@ public class FileTest {
             System.out.println(dir.getName());
             return;
         }
-        Arrays.stream(dir.listFiles()).forEach(FileTest::listAllFilesRecursively);
+        Arrays.stream(Objects.requireNonNull(dir.listFiles()))
+                .forEach(FileTest::listAllFilesRecursively);
     }
 
-    public static void printAbsolutePath(){
-        String absolutePath = System.getProperty("user.dir");
-        System.out.println(absolutePath);
+    public static void printRelatedPath(){
+        String related = System.getProperty("user.dir");
+        System.out.println(related);
         // D:\Playground\improve-java
     }
 
