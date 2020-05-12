@@ -11,9 +11,12 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class Parent implements Serializable {
+public class Parent/* implements Serializable */{
 
     private static final long serialVersionUID = 6529685298267757395L;
+
+    private String parentName;
+    private int age;
 
     public Parent(String parentName) {
         this.parentName = parentName;
@@ -26,7 +29,4 @@ public class Parent implements Serializable {
                 ", age=" + age +
                 '}';
     }
-
-    private String parentName;
-    private int age;
 }

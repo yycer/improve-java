@@ -20,8 +20,8 @@ public class Person implements Serializable {
 
     private String name;
     private int age;
-//    private transient String accountNo;
-    private String accountNo;
+    private transient String accountNo;
+//    private String accountNo;
 
     public Person(String name, int age) {
         this.name = name;
@@ -38,7 +38,7 @@ public class Person implements Serializable {
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.writeObject(name);
         oos.writeInt(age);
-        oos.writeObject(new StringBuilder(accountNo).append("888"));
+        oos.writeObject(new StringBuilder(accountNo).append("666"));
     }
 
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {

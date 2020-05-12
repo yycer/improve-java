@@ -11,7 +11,7 @@ public class InheritSerializeTest {
     public final static String path = "src/main/resources/playio/inheritSerialize.txt";
 
     public static void main(String[] args) {
-//        inheritSerialize();
+        inheritSerialize();
         inheritDeserialize();
     }
 

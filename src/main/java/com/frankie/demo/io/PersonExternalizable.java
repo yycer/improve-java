@@ -36,7 +36,7 @@ public class PersonExternalizable implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(name);
         out.writeInt(age);
-        out.writeObject(new StringBuilder(accountNo).reverse().toString());
+        out.writeObject(new StringBuilder(accountNo).append("888").toString());
     }
 
     @Override

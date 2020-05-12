@@ -10,7 +10,7 @@ public class SerializeTest {
 
     public final static String path = "src/main/resources/playio/person.txt";
     public final static String transientPath = "src/main/resources/playio/transient.txt";
-    public final static String customSerializePath1 = "src/main/resources/playio/customSerialize1.txt";
+    public final static String customSerializePath1 = "src/main/resources/playio/customSerialize.txt";
     public final static String externalizablePath = "src/main/resources/playio/externalizable.txt";
 
     public static void main(String[] args) {
@@ -30,12 +30,11 @@ public class SerializeTest {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void externalizableSerializeTest() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(externalizablePath))){
-            oos.writeObject(new PersonExternalizable("frankie", 28, "135"));
+            oos.writeObject(new PersonExternalizable("frankie", 28, "123"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,7 +50,7 @@ public class SerializeTest {
 
     private static void customSerializeTest() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(customSerializePath1))){
-            Person frankie = new Person("frankie", 30, "456");
+            Person frankie = new Person("frankie", 30, "123");
             oos.writeObject(frankie);
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,8 +77,8 @@ public class SerializeTest {
 
     private static void deserializeTest() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path))){
-            Person yyc   = (Person) ois.readObject();
             Student asan = (Student) ois.readObject();
+            Person yyc   = (Person) ois.readObject();
             System.out.println(yyc);
             System.out.println(asan);
         } catch (IOException | ClassNotFoundException e) {

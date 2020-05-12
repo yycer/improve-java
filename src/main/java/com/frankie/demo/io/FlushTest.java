@@ -13,7 +13,31 @@ public class FlushTest {
 
     public static void main(String[] args) throws IOException {
 //        usingAutoClosable();
-        usingManual();
+//        usingManual();
+//        justRead();
+        playFlush();
+    }
+
+    private static void playFlush() throws IOException {
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(manualPath));
+        for (int i = 0; i < 10; i++) {
+            bw.write(String.valueOf(Math.random()));
+            bw.newLine();
+        }
+        // bw.flush();
+        // bw.close();
+    }
+
+    private static void justRead() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(manualPath));
+
+        String s;
+        while ((s = br.readLine()) != null) {
+            System.out.println(s);
+        }
+
+        br.close();
     }
 
     /**
@@ -31,7 +55,7 @@ public class FlushTest {
             bw.write(String.valueOf(Math.random()));
             bw.newLine();
         }
-        bw.flush();
+//        bw.flush();
 
         String s;
         while ((s = br.readLine()) != null) {

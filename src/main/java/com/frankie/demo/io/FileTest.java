@@ -16,11 +16,11 @@ public class FileTest {
     public static String absolutePath = "C:\\Users\\15900\\Desktop\\E-Books";
 
     public static void main(String[] args) throws IOException {
-        printRelatedPath();
+//        printRelatedPath();
         File dir = new File("src/main/resources/root");
         listAllFilesRecursively(dir);
-        filerFileRecursively(dir);
-        fileListFilesTest();
+//        filerFileRecursively(dir);
+//        fileListFilesTest();
     }
 
     private static void fileListFilesTest() {
