@@ -12,14 +12,14 @@ public class StringJoinerTest {
     public static void main(String[] args) {
 
 //        StringJoiner sj1 = new StringJoiner(":");
-//        sj1.add("asan");
-//        sj1.add("pangzi");
+//        sj1.add("B");
+//        sj1.add("C");
 //        System.out.println(sj1);
 //
 //        StringJoiner sj2 = new StringJoiner(":", "[", "]");
-//        sj2.add("yyc");
-//        sj2.add("asan");
-//        sj2.add("pangzi");
+//        sj2.add("A");
+//        sj2.add("B");
+//        sj2.add("C");
 //        System.out.println(sj2);
 
 //        connectTest1();
@@ -27,13 +27,13 @@ public class StringJoinerTest {
     }
 
     private static void connectTest2() {
-        List<String> names = Arrays.asList("yyc", "asan", "pangzi");
+        List<String> names = Arrays.asList("A", "B", "C");
         String ret = String.join(",", names);
         System.out.println(ret);
     }
 
     private static void connectTest1() {
-        List<String> names = Arrays.asList("yyc", "asan", "pangzi");
+        List<String> names = Arrays.asList("A", "B", "C");
         StringBuilder sb = new StringBuilder();
         for (String name: names){
             sb.append(name);
