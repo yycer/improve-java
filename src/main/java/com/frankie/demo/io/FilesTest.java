@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class FilesTest {
 
-    public static Path path = Paths.get("src/main/resources/playio/filesAndPathTest.txt");
+    public static Path writeAndReadPath = Paths.get("src/main/resources/playio/filesWriteAndRead.txt");
     public static Path rootPath = Paths.get("src/main/resources/root");
-    public static String targetPath = "src/main/resources/playio/filesAndPathCopyTest.txt";
+    public static String targetPath = "src/main/resources/playio/filesCopy.txt";
 
 
 
@@ -27,13 +27,13 @@ public class FilesTest {
     }
 
     private static void listFilesRecursively() throws IOException {
-        // 仅遍历一层
-//        Files.list(rootPath).forEach(System.out::println);
+        // Just traversal one layer.
+        // Files.list(rootPath).forEach(System.out::println);
         Files.walkFileTree(rootPath, new SimpleFileVisitor<Path>(){
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs){
                 System.out.println(file);
-                // 注意是文件名
+                // file name
                 if (file.endsWith("level2_d.java")){
                     System.out.println("bingo!");
                     return FileVisitResult.TERMINATE;
@@ -50,17 +50,17 @@ public class FilesTest {
     }
 
     private static void copy() throws IOException {
-        Files.copy(path, new FileOutputStream(targetPath));
+        Files.copy(writeAndReadPath, new FileOutputStream(targetPath));
     }
 
     private static void readTest() throws IOException {
-        Files.lines(path, StandardCharsets.UTF_8).forEach(System.out::println);
+        Files.lines(writeAndReadPath, StandardCharsets.UTF_8).forEach(System.out::println);
     }
 
     private static void writeTest() throws IOException {
         ArrayList<String> content = new ArrayList<>();
         content.add("当风轻借力");
         content.add("一举入高空");
-        Files.write(path, content, StandardCharsets.UTF_8);
+        Files.write(writeAndReadPath, content, StandardCharsets.UTF_8);
     }
 }

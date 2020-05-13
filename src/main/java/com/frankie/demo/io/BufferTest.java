@@ -45,7 +45,7 @@ public class BufferTest {
         System.out.println("limit    = " + buf.limit());
         System.out.println("capacity = " + buf.capacity());
 
-        System.out.println("-------- Round 5 --------");
+        System.out.println("-------- Round 6 --------");
         System.out.println(buf.get(2));
         System.out.println("position = " + buf.position());
         System.out.println("limit    = " + buf.limit());
