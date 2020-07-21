@@ -14,23 +14,23 @@ public class BIOClient {
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
         System.out.println("请输入客户端编号: ");
-        int num = in.nextInt();
+        int id = in.nextInt();
         Socket socket = null;
 
         try {
             socket = new Socket("127.0.0.1", port);
-            System.out.println("客户端" + num + " 连接服务器成功！");
+            System.out.println("客户端" + id + " 连接服务器成功！");
             OutputStream out = socket.getOutputStream();
 
             while (true){
-                System.out.println("客户端" + num + " 请输入要发送的字符串(quit表示结束): ");
+                System.out.println("客户端" + id + " 请输入要发送的字符串(quit表示结束): ");
                 String s = in.next();
                 if (s.trim().equalsIgnoreCase("quit")){
                     break;
                 }
-                out.write((num + ":" + s).getBytes());
+                out.write((id + ":" + s).getBytes());
             }
-            System.out.println("客户端" + num + " 连接中断");
+            System.out.println("客户端" + id + " 连接中断");
             out.close();;
         } catch (IOException e) {
             e.printStackTrace();

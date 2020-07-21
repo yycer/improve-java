@@ -1,5 +1,7 @@
 package com.frankie.demo.algorithm;
 
+import java.util.*;
+
 /**
  * @author: Yao Frankie
  * @date: 2020/4/29 20:31
@@ -7,7 +9,20 @@ package com.frankie.demo.algorithm;
 public class TimeAnalysis {
 
     public static void main(String[] args) {
-        test();
+//        test();
+
+        List<String> list = new LinkedList<>();
+        list.add("yyc");
+        list.add("asan");
+        list.add("pangzi");
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()){
+            String cur = iterator.next();
+            if (cur.equals("pangzi")){
+                iterator.remove();
+            }
+        }
+        System.out.println(list);
     }
 
     private static void test() {
