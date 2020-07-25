@@ -5,7 +5,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * @author: Yao Frankie
@@ -13,6 +17,7 @@ import java.util.stream.Collectors;
  */
 public class Play {
 
+    static List<Shop> shops = buildShops(12);
 
     static List<Apple> inventory = Arrays.asList(
             new Apple(80,  "green"),
@@ -20,8 +25,36 @@ public class Play {
             new Apple(120, "red"));
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        long s = System.currentTimeMillis();
+//        getAllPrices();
+        getAllPricesUsingCF();
+        long e = System.currentTimeMillis();
+        System.out.println(e - s);
+    }
 
+    public static void getAllPricesUsingCF(){
+        List<CompletableFuture<String>> futures = shops.stream()
+                .map(s -> CompletableFuture.supplyAsync(() -> s.getPrice("Mac")))
+                .collect(Collectors.toList());
+
+        List<String> ans = futures.stream().map(CompletableFuture::join)
+                .collect(Collectors.toList());
+    }
+
+    public static List<String> getAllPrices(){
+        return shops.parallelStream()
+                .map(s -> String.format("%s", s.getPrice("Mac")))
+                .collect(Collectors.toList());
+    }
+
+    public static List<Shop> buildShops(int n){
+        return IntStream.range(0, n)
+                .mapToObj(i ->  new Shop(String.valueOf(i)))
+                .collect(Collectors.toList());
+    }
+
+    private static void localDateTimeTest() {
         LocalDateTime s = LocalDateTime.now();
 //        Thread.sleep(1024);
         LocalDateTime e = LocalDateTime.now();
