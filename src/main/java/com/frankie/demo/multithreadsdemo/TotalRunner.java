@@ -9,6 +9,10 @@ import java.util.concurrent.ArrayBlockingQueue;
  */
 public class TotalRunner implements Runnable{
 
+    public TotalRunner(ArrayBlockingQueue<Integer> abq) {
+        this.abq = abq;
+    }
+
     private ArrayBlockingQueue<Integer> abq;
 
     @Override

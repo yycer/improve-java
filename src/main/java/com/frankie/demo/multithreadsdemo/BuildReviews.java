@@ -9,10 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author: Yao Frankie
@@ -20,33 +17,43 @@ import java.util.concurrent.Executors;
  */
 public class BuildReviews {
 
-    private static final int N = 1000000;
+//    private static final int N = 1000000;
+    private static final int N = 100000;
 //    private static final int N = 10;
     private static String pathName = "src/main/resources/reviews/reviews";
     private static final Path path = Paths.get("src/main/resources/reviews/reviews1.csv");
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws InterruptedException, IOException {
+
+//        for (int i = 1; i <= 20; i++){
+//            writeData(pathName + i + ".csv");
+//        }
 
         long s = System.currentTimeMillis();
+//        ans = 1256409
+//        Cost: 2790ms
 //        countUsingMain();
 //        countUsingThreads();
 //        getAllStar();
 //        countUsingForkJoin();
+//        ans = 399532
+//        Cost: 569ms
         countUsingCyclicBarrier();
         long e = System.currentTimeMillis();
-        System.out.println(e - s);
+        System.out.printf("Cost: %dms\n", e - s);
     }
 
-    private static void countUsingCyclicBarrier() {
+    private static void countUsingCyclicBarrier() throws InterruptedException {
 
-        int n = 20;
-        ArrayBlockingQueue<Integer> abq = new ArrayBlockingQueue<>(n);
-        CyclicBarrier cb = new CyclicBarrier(n, new TotalRunner());
-        ExecutorService service = Executors.newFixedThreadPool(20);
-        for (int i = 1; i <= n; i++){
+        int N = 20;
+        ArrayBlockingQueue<Integer> abq = new ArrayBlockingQueue<>(N);
+        CyclicBarrier cb = new CyclicBarrier(10, new TotalRunner(abq));
+        ExecutorService service = Executors.newFixedThreadPool(12);
+        for (int i = 1; i <= 20; i++){
             service.submit(new ReviewRunner(cb, abq, i));
         }
         service.shutdown();
+        service.awaitTermination(60, TimeUnit.SECONDS);
     }
 
     private static void countUsingForkJoin() {
@@ -91,7 +98,7 @@ public class BuildReviews {
      */
     private static void countUsingMain() throws IOException {
         int ans = 0;
-        for (int i = 1; i <= 20; i++){
+        for (int i = 1; i <= 3; i++){
             ans += count(pathName + i + ".csv");
         }
 //        ans = 4002430
