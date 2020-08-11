@@ -7,7 +7,15 @@ package com.frankie.demo.jvm;
 public class AppleTest {
 
     public static void main(String[] args) {
-        Apple apple = new Apple(10, "red");
-    }
 
+        int cnt = 0;
+        retry:
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 2; j++){
+                cnt++;
+                if (cnt == 3) continue retry;
+                System.out.println(cnt);
+            }
+        }
+    }
 }
