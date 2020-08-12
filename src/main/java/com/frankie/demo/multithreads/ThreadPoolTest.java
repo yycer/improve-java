@@ -11,13 +11,11 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) {
 
-//        ExecutorService threadPool = Executors.newCachedThreadPool();
-//        threadPool.submit(new JustRun());
+        ExecutorService threadPool = Executors.newCachedThreadPool();
+        threadPool.submit(new JustRun());
 //        threadPool.execute(new JustRun());
 //        threadPool.submit(() -> System.out.println("123"));
-//        threadPool.shutdown();
+        threadPool.shutdown();
 
-        int i = 1 << 0;
-        System.out.println(i);
     }
 }
