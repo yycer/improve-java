@@ -23,6 +23,9 @@ public class BuildReviews {
     private static String pathName = "src/main/resources/reviews/reviews";
     private static final Path path = Paths.get("src/main/resources/reviews/reviews1.csv");
 
+    private static final int start = 11;
+    private static final int end = 20;
+
     public static void main(String[] args) throws InterruptedException, IOException {
 
 //        for (int i = 1; i <= 20; i++){
@@ -30,30 +33,50 @@ public class BuildReviews {
 //        }
 
         long s = System.currentTimeMillis();
-//        ans = 1256409
-//        Cost: 2790ms
+        /** ans = 199646, cost = 584ms */
+        /** ans = 1256409, cost = 6303ms */
 //        countUsingMain();
-//        countUsingThreads();
-//        getAllStar();
-//        countUsingForkJoin();
-//        ans = 399532
-//        Cost: 569ms
-        countUsingCyclicBarrier();
+//        countUsingCyclicBarrier();
+        countUsingLatch();
         long e = System.currentTimeMillis();
         System.out.printf("Cost: %dms\n", e - s);
     }
 
+    private static void countUsingLatch() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(10);
+        ArrayBlockingQueue<Integer> abq = new ArrayBlockingQueue<>(N);
+        ExecutorService service = Executors.newFixedThreadPool(10);
+        for (int i = start; i <= end; i++){
+            service.submit(new ReviewLatchRunner(latch, abq, i));
+        }
+        service.shutdown();
+        service.awaitTermination(1, TimeUnit.HOURS);
+        latch.await();
+        int ans = 0;
+        while (!abq.isEmpty()){
+            ans += abq.poll();
+        }
+        System.out.println("ans = " + ans);
+    }
+
     private static void countUsingCyclicBarrier() throws InterruptedException {
 
-        int N = 20;
+        long s = System.currentTimeMillis();
         ArrayBlockingQueue<Integer> abq = new ArrayBlockingQueue<>(N);
-        CyclicBarrier cb = new CyclicBarrier(10, new TotalRunner(abq));
-        ExecutorService service = Executors.newFixedThreadPool(12);
-        for (int i = 1; i <= 20; i++){
+        CyclicBarrier cb = new CyclicBarrier(1, new TotalRunner(abq));
+        ExecutorService service = Executors.newFixedThreadPool(4);
+        for (int i = 1; i <= 3; i++){
             service.submit(new ReviewRunner(cb, abq, i));
         }
         service.shutdown();
-        service.awaitTermination(60, TimeUnit.SECONDS);
+        service.awaitTermination(1, TimeUnit.HOURS);
+        long e = System.currentTimeMillis();
+        /**
+         * parties = 2, threads = 2, ans = 199646, cost time = 396ms
+         * parties = 5, threads = 5, ans = 199646, cost time = 357ms
+         * parties = 10, threads = 10, ans = 199646, cost time = 322ms
+         */
+        System.out.printf("Service Cost: %dms\n", e - s);
     }
 
     private static void countUsingForkJoin() {
@@ -99,7 +122,9 @@ public class BuildReviews {
     private static void countUsingMain() throws IOException {
         int ans = 0;
         for (int i = 1; i <= 3; i++){
-            ans += count(pathName + i + ".csv");
+            int a = count(pathName + i + ".csv");
+            System.out.println("i = " + i + ", cnt = " + a);
+            ans += a;
         }
 //        ans = 4002430
 //        9288ms

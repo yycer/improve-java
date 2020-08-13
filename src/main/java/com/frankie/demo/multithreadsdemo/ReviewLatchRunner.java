@@ -7,26 +7,25 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author: Yao Frankie
- * @date: 2020/8/6 22:03
+ * @date: 2020/8/13 11:45
  */
-public class ReviewRunner implements Runnable {
+public class ReviewLatchRunner implements Runnable {
 
     private final static String pathName = "src/main/resources/reviews/reviews";
-    private CyclicBarrier cb;
-    private ArrayBlockingQueue<Integer> abq;
-    private int id;
-    private volatile int cnt = 0;
 
-    public ReviewRunner(CyclicBarrier cb, ArrayBlockingQueue<Integer> abq, int id) {
-        this.cb = cb;
+    public ReviewLatchRunner(CountDownLatch latch, ArrayBlockingQueue<Integer> abq, int id) {
+        this.latch = latch;
         this.abq = abq;
         this.id = id;
     }
+
+    private CountDownLatch latch;
+    private ArrayBlockingQueue<Integer> abq;
+    private int id;
 
     @Override
     public void run() {
@@ -34,15 +33,17 @@ public class ReviewRunner implements Runnable {
             int cnt = count(pathName + id + ".csv");
             System.out.println("id = " + id + ", cnt = " + cnt);
             abq.put(cnt);
-            cb.await();
-        } catch (IOException | InterruptedException | BrokenBarrierException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            latch.countDown();
         }
     }
 
     private int count(String pathName) throws IOException {
         Path path = Paths.get(pathName);
         List<String> records = Files.readAllLines(path);
+        int cnt = 0;
         for (String r: records){
             String[] split = r.split(",");
             int star = Integer.parseInt(split[2]);
