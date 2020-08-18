@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    1. beanName = "messageServiceImpl", alias = ["name1", "name2"] -->
+<!--    <bean id = "messageServiceImpl" name="name1, name2" class="com.frankie.demo.ioc.MessageServiceImpl"/>-->
+
+<!--    2. beanName = "name1", alias = ["name2", "name3"] -->
+<!--    <bean name="name1, name2, name3" class="com.frankie.demo.ioc.MessageServiceImpl"/>-->
+
+</beans>
