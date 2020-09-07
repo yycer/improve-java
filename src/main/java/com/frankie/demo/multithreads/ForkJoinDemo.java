@@ -1,8 +1,5 @@
 package com.frankie.demo.multithreads;
 
-import com.sun.jndi.toolkit.ctx.StringHeadTail;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;

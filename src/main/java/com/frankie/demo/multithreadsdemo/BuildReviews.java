@@ -1,7 +1,6 @@
 package com.frankie.demo.multithreadsdemo;
 
 import org.apache.commons.lang3.RandomUtils;
-import org.omg.CORBA.INTERNAL;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,7 +1,6 @@
 package com.frankie.demo;
 
 import org.mybatis.spring.annotation.MapperScan;
-import org.omg.PortableInterceptor.Interceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
