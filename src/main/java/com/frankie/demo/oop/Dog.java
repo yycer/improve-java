@@ -25,6 +25,15 @@ public class Dog {
         System.out.println("Dog start running");
     }
 
+    public static void m1(){
+        System.out.println("m1");
+    }
+
+    public static void m2(){
+        m1();
+        System.out.println("m2");
+    }
+
 //    public void getName(){
 //        String name = "abc";
 //        System.out.println("The name of dog is " + name);
