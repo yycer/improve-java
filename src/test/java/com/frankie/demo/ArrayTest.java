@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author: Yao Frankie
  * @date: 2020/2/28 20:42
  */
-@SpringBootTest
+@SpringBootTest(classes = ArrayTest.class)
 public class ArrayTest {
 
     @Test

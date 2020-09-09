@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author: Yao Frankie
  * @date: 2020/2/28 16:05
  */
-@SpringBootTest
+@SpringBootTest(classes = EnumAndSwitchTest.class)
 public class EnumAndSwitchTest {
 
     public static final int SEASON_SPRING = 1;

@@ -1,5 +1,6 @@
 package com.frankie.demo;
 
+import jdk.jfr.SettingControl;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,7 +12,7 @@ import java.util.TreeSet;
  * @author: Yao Frankie
  * @date: 2020/4/25 10:23
  */
-@SpringBootTest
+@SpringBootTest(classes = SetTest.class)
 public class SetTest {
 
     @Test

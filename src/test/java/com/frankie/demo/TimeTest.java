@@ -2,6 +2,7 @@ package com.frankie.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
  * @author: Yao Frankie
  * @date: 2020/3/6 08:41
  */
-@SpringBootApplication
+@SpringBootTest(classes = TimeTest.class)
 public class TimeTest {
 
     @Test

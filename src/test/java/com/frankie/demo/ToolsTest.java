@@ -4,6 +4,7 @@ import com.frankie.demo.oopplus.User;
 import com.frankie.demo.utils.BigDecimalUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,7 +14,7 @@ import java.util.*;
  * @author: Yao Frankie
  * @date: 2020/3/6 20:53
  */
-@SpringBootApplication
+@SpringBootTest(classes = ToolsTest.class)
 public class ToolsTest {
 
     @Test

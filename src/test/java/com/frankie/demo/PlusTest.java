@@ -5,6 +5,7 @@ import com.frankie.demo.plus.OrderComparator;
 import com.frankie.demo.plus.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +15,7 @@ import java.util.Comparator;
  * @author: Yao Frankie
  * @date: 2020/3/19 21:50
  */
-@SpringBootApplication
+@SpringBootTest(classes = PlusTest.class)
 public class PlusTest {
 
     @Test

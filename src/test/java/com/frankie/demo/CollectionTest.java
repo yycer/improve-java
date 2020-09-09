@@ -7,6 +7,7 @@ import com.frankie.demo.playcollection.C;
 import com.frankie.demo.playcollection.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
 
@@ -14,7 +15,7 @@ import java.util.*;
  * @author: Yao Frankie
  * @date: 2020/3/7 15:45
  */
-@SpringBootApplication
+@SpringBootTest(classes = CollectionTest.class)
 public class CollectionTest {
 
     /**
@@ -105,7 +106,6 @@ public class CollectionTest {
         treeSet.add(3);
         treeSet.add(2);
         treeSet.add(2);
-        treeSet.add(null);
         System.out.println(treeSet); // [1, 2, 3, 5]
         System.out.println("treeSet.headSet(3)    -> " + treeSet.headSet(3));
         System.out.println("treeSet.tailSet(3)    -> " + treeSet.tailSet(3));
