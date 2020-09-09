@@ -6,15 +6,15 @@ package com.frankie.demo.oop;
  */
 public class BaseClass {
 
-    public BaseClass(){
-        System.out.println("Constructor in BaseClass.");
-    }
+//    public BaseClass(){
+//        System.out.println("Constructor in BaseClass.");
+//    }
+//
+//    {
+//        System.out.println("Instance init block in BaseClass.");
+//    }
 
-    {
-        System.out.println("Instance init block in BaseClass.");
-    }
-
-    public int book = 5;
+    public int book = 6;
 
     public void base(){
         System.out.println("base() in BaseClass.");

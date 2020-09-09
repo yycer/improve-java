@@ -6,13 +6,13 @@ package com.frankie.demo.oop;
  */
 public class SubClass extends BaseClass{
 
-    public SubClass(){
-        System.out.println("Constructor in SubClass.");
-    }
-
-    {
-        System.out.println("Instance init block in SubClass.");
-    }
+//    public SubClass(){
+//        System.out.println("Constructor in SubClass.");
+//    }
+//
+//    {
+//        System.out.println("Instance init block in SubClass.");
+//    }
 
     public String book = "Java book";
 
