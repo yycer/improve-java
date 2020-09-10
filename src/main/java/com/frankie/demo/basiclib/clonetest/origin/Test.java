@@ -21,14 +21,17 @@ public class Test {
         System.out.println("Cloned department name: " + cloned.getDepartment().getName());
         System.out.println("-------------------------------------");
 
-//        cloned.getDepartment().setName("Finance");
-        cloned.setId(23);
-        System.out.println("Original Employee id: " + original.getId());
-        System.out.println("Cloned   Employee id: " + cloned.getId());
-        System.out.println("-------------------------------------");
+        cloned.getDepartment().setName("Finance");
+        System.out.println("Original department name: " + original.getDepartment().getName());
+        System.out.println("Cloned   department name: " + cloned.getDepartment().getName());
 
-        cloned.setName("frankie");
-        System.out.println("Original Employee name: " + original.getName());
-        System.out.println("Cloned   Employee name: " + cloned.getName());
+//        cloned.setId(23);
+//        System.out.println("Original Employee id: " + original.getId());
+//        System.out.println("Cloned   Employee id: " + cloned.getId());
+//        System.out.println("-------------------------------------");
+//
+//        cloned.setName("frankie");
+//        System.out.println("Original Employee name: " + original.getName());
+//        System.out.println("Cloned   Employee name: " + cloned.getName());
     }
 }

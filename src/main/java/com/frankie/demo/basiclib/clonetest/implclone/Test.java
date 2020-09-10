@@ -17,10 +17,6 @@ public class Test {
         System.out.println("Cloned department name: " + cloned.getDepartment().getName());
         System.out.println("-------------------------------------");
 
-//        System.out.println("original == cloned: " + (original == cloned));
-//        System.out.println("original.getClass() == cloned.getClass(): " + (original.getClass() == cloned.getClass()));
-//        System.out.println("original.equals(cloned): " + original.equals(cloned));
-
         cloned.getDepartment().setName("Finance");
         System.out.println("Original department name: " + original.getDepartment().getName());
         System.out.println("Cloned   department name: " + cloned.getDepartment().getName());
