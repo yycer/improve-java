@@ -5,14 +5,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author: Yao Frankie
  * @date: 2020/9/12 15:22
  */
-public class PeriodTest {
+public class IntervalsTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         LocalDateTime born = LocalDateTime.of(1949, 10, 1, 10, 00, 00);
         LocalDateTime now  = LocalDateTime.now();
@@ -33,5 +34,10 @@ public class PeriodTest {
         System.out.println("minutes = " + minutes);
         System.out.println("seconds = " + seconds);
 
+        LocalDateTime beg = LocalDateTime.now();
+        Thread.sleep(1230);
+        LocalDateTime end = LocalDateTime.now();
+        long gap = ChronoUnit.MILLIS.between(beg, end);
+        System.out.printf("Cost %sms \n", gap);
     }
 }

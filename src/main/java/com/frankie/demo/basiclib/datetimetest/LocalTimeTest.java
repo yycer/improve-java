@@ -16,32 +16,33 @@ public class LocalTimeTest {
         /**
          * 1. How to create LocalTime instance?
          */
-//        LocalTime lt1 = LocalTime.now();
-//        LocalTime lt2 = LocalTime.of(11, 22, 0);
-//        LocalTime lt3 = LocalTime.parse("11:22:00");
-//
-//        System.out.println(lt1);
-//        System.out.println(lt2);
-//        System.out.println(lt3);
-//
-//        DateTimeFormatter localTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
-//        String lt1Str = lt1.truncatedTo(ChronoUnit.SECONDS).format(localTimeFormatter);
-//        System.out.println(lt1Str);
+        LocalTime lt1 = LocalTime.now();
+        LocalTime lt2 = LocalTime.of(11, 22, 0);
+        LocalTime lt3 = LocalTime.parse("11:22:00");
+        System.out.println("-----------------------------------------");
+        System.out.println("lt1    = " + lt1);
+        System.out.println("lt2    = " + lt2);
+        System.out.println("lt3    = " + lt3);
+
+        DateTimeFormatter localTimeFormatter = DateTimeFormatter.ISO_LOCAL_TIME;
+        String lt1Str = lt1.truncatedTo(ChronoUnit.SECONDS).format(localTimeFormatter);
+        System.out.println("lt1Str = " + lt1Str);
+        System.out.println("-----------------------------------------");
 
         /**
          * 2. Basic properties.
          */
-//        LocalTime lt = LocalTime.now();
-//        int hour   = lt.getHour();
-//        int minute = lt.getMinute();
-//        int second = lt.getSecond();
-//        int nano   = lt.getNano();
-//        System.out.println(lt);
-//        System.out.println(hour);
-//        System.out.println(minute);
-//        System.out.println(second);
-//        System.out.println(nano);
-
+        LocalTime now = LocalTime.now();
+        int hour   = now.getHour();
+        int minute = now.getMinute();
+        int second = now.getSecond();
+        int nano   = now.getNano();
+        System.out.println("now    = " + now);
+        System.out.println("hour   = " + hour);
+        System.out.println("minute = " + minute);
+        System.out.println("second = " + second);
+        System.out.println("nano   = " + nano);
+        System.out.println("-----------------------------------------");
 
         /**
          * 3. Utility methods.
@@ -54,5 +55,6 @@ public class LocalTimeTest {
         System.out.println("addTwoHours = " + addTwoHours);
         System.out.println("minus30Mins = " + minus30Mins);
         System.out.println("withHour3   = " + withHour3);
+        System.out.println("-----------------------------------------");
     }
 }

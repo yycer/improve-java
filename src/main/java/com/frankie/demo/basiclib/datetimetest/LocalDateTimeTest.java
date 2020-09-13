@@ -13,17 +13,17 @@ public class LocalDateTimeTest {
 
     public static void main(String[] args) {
 
-
         /**
          * 1. Create a LocalDateTime instance.
          */
         LocalDateTime ldt1 = LocalDateTime.now();
         LocalDateTime ldt2 = LocalDateTime.of(2020, 9, 12, 14, 45, 20);
         LocalDateTime ldt3 = LocalDateTime.parse("2020-09-12T14:45:20");
-//        System.out.println("ldt1 = " + ldt1);
-//        System.out.println("ldt2 = " + ldt2);
-//        System.out.println("ldt3 = " + ldt3);
-
+        System.out.println("-----------------------------------------");
+        System.out.println("ldt1 = " + ldt1);
+        System.out.println("ldt2 = " + ldt2);
+        System.out.println("ldt3 = " + ldt3);
+        System.out.println("-----------------------------------------");
 
         /**
          * 2. Basic Properties.
@@ -50,6 +50,7 @@ public class LocalDateTimeTest {
         System.out.println("minute     = " + minute);
         System.out.println("second     = " + second);
         System.out.println("nano       = " + nano);
+        System.out.println("-----------------------------------------");
 
         /**
          * 3. Utility Methods.
@@ -61,11 +62,13 @@ public class LocalDateTimeTest {
         boolean before = today.isBefore(lastMonth);
         boolean after  = today.isAfter(lastMonth);
 
-//        System.out.println("today     = " + today);
-//        System.out.println("tomorrow  = " + tomorrow);
-//        System.out.println("yesterday = " + yesterday);
-//        System.out.println("lastMonth = " + lastMonth);
-//        System.out.println("before    = " + before);
-//        System.out.println("after     = " + after);
+        System.out.println("today     = " + today);
+        System.out.println("tomorrow  = " + tomorrow);
+        System.out.println("yesterday = " + yesterday);
+        System.out.println("lastMonth = " + lastMonth);
+        System.out.println("before    = " + before);
+        System.out.println("after     = " + after);
+        System.out.println("-----------------------------------------");
+
     }
 }
