@@ -13,5 +13,7 @@ public class StreamTest {
         int[] nums = {1, 0, 1};
         boolean ans = IntStream.of(nums).anyMatch(i -> i == 0);
         System.out.println(ans);
+        int sum = IntStream.of(nums).sum();
+        System.out.println(sum);
     }
 }
