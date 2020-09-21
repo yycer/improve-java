@@ -39,13 +39,12 @@ public class FlowControlTest {
             } else{
                 int a = 10 / 0;
             }
-            return "Returning form try block";
+            return "Return form try block";
         } catch (Exception e){
             System.out.println(name + " from catch block.");
-            return "Returning form catch block";
+            return "Return form catch block";
         } finally {
-            /**As a good practice, it is better to avoid writing return statements in finally block. */
-            return "Returning form finally block"; // bingo
+            return "Return form finally block";
         }
     }
 }
