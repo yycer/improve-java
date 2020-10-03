@@ -8,7 +8,7 @@ import java.sql.SQLException;
  * @author: Yao Frankie
  * @date: 2020/10/2 21:40
  */
-public class JDBCTest {
+public class JdbcTest {
 
     public static void main(String[] args) {
         Connection conn = null;
