@@ -19,8 +19,14 @@ public class QuartzTest {
         Scheduler scheduler = factory.getScheduler();
         scheduler.start();
 
-        JobDetail job = newJob(HelloJob.class)
-                .withIdentity("myJob", "group1")
+//        JobDetail job = newJob(HelloJob.class)
+//                .withIdentity("myJob", "group1")
+//                .build();
+
+        JobDetail job = newJob(DumbJob.class)
+                .withIdentity("dumbJob", "group1")
+                .usingJobData("jobSays", "Hello World!")
+                .usingJobData("myFloatValue", 3.14f)
                 .build();
 
         SimpleTrigger trigger = newTrigger()
