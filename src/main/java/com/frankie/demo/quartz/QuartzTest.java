@@ -1,8 +1,11 @@
 package com.frankie.demo.quartz;
 
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
+import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
+
+import static org.quartz.JobBuilder.*;
+import static org.quartz.TriggerBuilder.*;
+import static org.quartz.SimpleScheduleBuilder.*;
 
 /**
  * @author: Yao Frankie
@@ -10,19 +13,25 @@ import org.quartz.impl.StdSchedulerFactory;
  */
 public class QuartzTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SchedulerException {
 
-        try {
-            // Grab the Scheduler instance from the Factory
-            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+        StdSchedulerFactory factory = new StdSchedulerFactory();
+        Scheduler scheduler = factory.getScheduler();
+        scheduler.start();
 
-            // and start it off
-            scheduler.start();
+        JobDetail job = newJob(HelloJob.class)
+                .withIdentity("myJob", "group1")
+                .build();
 
-            scheduler.shutdown();
+        SimpleTrigger trigger = newTrigger()
+                .withIdentity("myTrigger", "group1")
+                .startNow()
+                .withSchedule(simpleSchedule()
+                        .withIntervalInSeconds(10)
+                        .repeatForever())
+                .build();
 
-        } catch (SchedulerException se) {
-            se.printStackTrace();
-        }
+        scheduler.scheduleJob(job, trigger);
+
     }
 }
