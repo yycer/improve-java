@@ -26,6 +26,6 @@ public class EasyMockMethodExample {
         mockList.add(20);
         Assert.assertTrue(mockList.get(0) == 10);
         Assert.assertEquals(mockList.size(), 2);
-
+        verify(mockList);
     }
 }
